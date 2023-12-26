@@ -2,15 +2,27 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "Move the red ball with Z-Q-S-D keys");
-    sf::CircleShape shape(10.f);
-    shape.setFillColor(sf::Color::Red);
+    sf::RenderWindow window(sf::VideoMode(1920, 1080), "Move the red ball with Z-Q-S-D keys");
+    //sf::CircleShape shape(10.f);
+    //shape.setFillColor(sf::Color::Red);
+    sf::Texture playerTexture;
+    sf::Sprite playerSprite;
+
+    if (playerTexture.loadFromFile("Sprites/Biker/Biker_idle.png"))
+    {
+        playerSprite.setTexture(playerTexture);
+        int XIndex = 0;
+        int YIndex = 0;
+
+        playerSprite.setTextureRect(sf::IntRect(XIndex * 48, YIndex * 48, 48, 48));
+        playerSprite.scale(sf::Vector2f(3, 3));
+    } 
 
     int velocity = 1;
  
     while (window.isOpen())
     {
-        sf::Vector2f position = shape.getPosition();
+        sf::Vector2f position = playerSprite.getPosition();
 
         sf::Event event;
         while (window.pollEvent(event))
@@ -20,23 +32,23 @@ int main()
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
         {
-            shape.setPosition(position + sf::Vector2f(0, -velocity));
+            playerSprite.setPosition(position + sf::Vector2f(0, -velocity));
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
         {
-            shape.setPosition(position + sf::Vector2f(0, velocity));
+            playerSprite.setPosition(position + sf::Vector2f(0, velocity));
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
         {
-            shape.setPosition(position + sf::Vector2f(velocity, 0));
+            playerSprite.setPosition(position + sf::Vector2f(velocity, 0));
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
         {
-            shape.setPosition(position + sf::Vector2f(-velocity, 0));
+            playerSprite.setPosition(position + sf::Vector2f(-velocity, 0));
         } 
         
-        window.clear();
-        window.draw(shape);
+        window.clear(sf::Color::White);
+        window.draw(playerSprite);
         window.display();
     }
 
