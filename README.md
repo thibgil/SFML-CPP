@@ -17,3 +17,9 @@ g++ code.o -o game -lsfml-graphics -lsfml-window -lsfml-system
 ```sh
 ./game
 ```
+
+# List of projects
+```
+1. Move a ball with ZQSD keys
+2. First Simple Game
+```
