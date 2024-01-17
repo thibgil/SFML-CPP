@@ -22,3 +22,5 @@ g++ code.o -o game -lsfml-graphics -lsfml-window -lsfml-system
 - 1. Move a ball with ZQSD keys
 - 2. First Simple Game
 
+# Learning Sources
+- For my first simple game: https://youtube.com/watch?v=PXnhYBG0AEA
