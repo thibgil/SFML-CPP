@@ -47,7 +47,7 @@ int main()
             playerSprite.setPosition(position + sf::Vector2f(-velocity, 0));
         } 
         
-        window.clear(sf::Color::White);
+        window.clear(sf::Color::Black);
         window.draw(playerSprite);
         window.display();
     }
